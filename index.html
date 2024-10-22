@@ -3,138 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hnoodh OS</title>
+    <title>Hnoodhlite</title>
     <style>
         body {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
             font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #dcdcdc;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-        }
-
-        .header img {
-            width: 150px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-
         .terminal {
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #000;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            color: #0f0;
-            overflow: auto;
-            height: 300px;
-            width: 90%;
-            max-width: 800px;
-            font-size: 16px;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .prompt::after {
-            content: " ";
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background-color: #0f0;
-            margin-left: 5px;
-            animation: blink 1s steps(2, start) infinite;
-        }
-
-        .button {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            text-align: center;
-            background-color: #0f0;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #00cc00;
-        }
-
-        .about {
-            margin: 50px auto;
-            width: 90%;
-            max-width: 800px;
-            background-color: #292929;
+            background-color: rgba(45, 45, 45, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
             padding: 20px;
-            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
         }
-
-        .about h2 {
+        .line {
+            display: flex;
+        }
+        .prompt {
+            color: #00ff00;
+            margin-right: 10px;
+        }
+        .text {
+            animation: typing 3s steps(30, end) infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .about {
             text-align: center;
-            margin-bottom: 10px;
-            color: #00cc00;
+            margin-top: 30px;
+            font-size: 1.2em;
+            animation: fadeInOut 6s infinite;
         }
-
-        .about p {
-            line-height: 1.6;
-            text-align: justify;
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
         }
-
-        .footer {
+        footer {
+            position: absolute;
+            bottom: 10px;
             text-align: center;
-            padding: 10px;
-            background-color: #333;
-            position: fixed;
-            bottom: 0;
             width: 100%;
-            color: #aaa;
         }
     </style>
 </head>
 <body>
-
-    <!-- الهيدر: يحتوي على صورة وعنوان -->
-    <div class="header">
-        <img src="my-image.gif" alt="heya">
-        <h1>مرحباً بك في hnoodh OS</h1>
-    </div>
-
-    <!-- التيرمينال: نص متحرك -->
     <div class="terminal">
-        <div class="prompt">Loading hnoodh OS...</div>
-        <div class="prompt">Welcome, Developer! 🖥️</div>
-        <div class="prompt">Type your commands below:</div>
+        <div class="line">
+            <span class="prompt">$</span>
+            <span class="text">مرحبا، أنا Hnoodhlite</span>
+        </div>
+        <div class="line">
+            <span class="prompt">$</span>
+            <span class="text">مطور برامج ومبرمج أكواد ومصمم</span>
+        </div>
     </div>
 
-    <!-- زر يفتح صفحة أخرى أو قسم المنشورات -->
-    <a class="button" href="#about">اذهب إلى حول</a>
-
-    <!-- قسم حول: معلومات إضافية عن المطور -->
-    <div id="about" class="about">
-        <h2>حول hnoodh</h2>
-        <p>أنا hnoodh، مطور برامج، مصمم، ورسّام. أعمل على تطوير التطبيقات والمواقع الإلكترونية وأحب تجربة أنظمة التشغيل المختلفة. 
-        <br><br>
-        هذا الموقع يعكس شغفي بتطوير البرمجيات، ويعمل كتجربة لإنشاء واجهة بسيطة مع تيرمينال وهمي. يمكنك التفاعل هنا أو الانتقال إلى منشوراتي لتعرف المزيد عن أعمالي.</p>
+    <div class="about">
+        <p>أنا متخصص في تطوير البرمجيات وتصميم الأنظمة البرمجية. أحب البرمجة والعمل على مشاريع مبتكرة.</p>
     </div>
 
-    <!-- الفوتر: حقوق النشر -->
-    <div class="footer">
-        &copy; 2024 hnoodh. جميع الحقوق محفوظة.
-    </div>
-
+    <footer>
+        <p>© 2024 Hnoodhlite. جميع الحقوق محفوظة.</p>
+    </footer>
 </body>
-                                                    </html>
+</html>
