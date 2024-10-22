@@ -1,17 +1,80 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hnoodhlite</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>hnoodh OS - Welcome</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .terminal {
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            height: 300px;
+            overflow-y: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            background-color: #238636;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2ea043;
+        }
+
+        .character {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+            object-fit: cover;
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        .typing {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            animation: typing 4s steps(40, end) infinite;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>hnoodhlite</h1>
-        <div class="command"># wget https://hnoodh.os</div>
-        <a class="button" href="YOUR_POSTS_PAGE_URL">اذهب إلى منشوراتي</a>
-        <div class="footer">جميع الحقوق محفوظة © hnoodhlite</div>
+
+    <div class="terminal">
+        <p>Loading <span class="typing">hnoodh OS...</span></p>
+        <p>Initializing system...</p>
+        <p>Loading modules...</p>
+        <p>Welcome to hnoodh OS!</p>
     </div>
+
+    <img src="your-character-image-url.jpg" alt="My Character" class="character">
+
+    <a href="about.html" class="btn">اذهب إلى منشوراتي</a>
+
 </body>
-</html>
+    </html>
