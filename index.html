@@ -1,38 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hnoodh OS</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+        }
+
+        .header img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .terminal {
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            color: #0f0;
+            overflow: auto;
+            height: 300px;
+            width: 90%;
+            max-width: 800px;
+            font-size: 16px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .prompt::after {
+            content: " ";
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #0f0;
+            margin-left: 5px;
+            animation: blink 1s steps(2, start) infinite;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #0f0;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #00cc00;
+        }
+
+        .about {
+            margin: 50px auto;
+            width: 90%;
+            max-width: 800px;
+            background-color: #292929;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #00cc00;
+        }
+
+        .about p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <span class="logo">hnoodh OS</span>
-        <ul class="menu">
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#about">حول</a></li>
-            <li><a href="#posts">منشوراتي</a></li>
-        </ul>
+    <!-- الهيدر: يحتوي على صورة وعنوان -->
+    <div class="header">
+        <img src="my-image.gif" alt="heya">
+        <h1>مرحباً بك في hnoodh OS</h1>
     </div>
 
-    <div class="desktop">
-        <div class="window" id="terminal">
-            <div class="window-header">
-                <span class="window-title">Terminal</span>
-                <button class="close-btn">&times;</button>
-            </div>
-            <div class="window-content">
-                <pre id="terminal-output"></pre>
-            </div>
-        </div>
+    <!-- التيرمينال: نص متحرك -->
+    <div class="terminal">
+        <div class="prompt">Loading hnoodh OS...</div>
+        <div class="prompt">Welcome, Developer! 🖥️</div>
+        <div class="prompt">Type your commands below:</div>
     </div>
 
-    <div class="floating-button">
-        <a href="about.html" class="btn">اذهب إلى منشوراتي</a>
+    <!-- زر يفتح صفحة أخرى أو قسم المنشورات -->
+    <a class="button" href="#about">اذهب إلى حول</a>
+
+    <!-- قسم حول: معلومات إضافية عن المطور -->
+    <div id="about" class="about">
+        <h2>حول hnoodh</h2>
+        <p>أنا hnoodh، مطور برامج، مصمم، ورسّام. أعمل على تطوير التطبيقات والمواقع الإلكترونية وأحب تجربة أنظمة التشغيل المختلفة. 
+        <br><br>
+        هذا الموقع يعكس شغفي بتطوير البرمجيات، ويعمل كتجربة لإنشاء واجهة بسيطة مع تيرمينال وهمي. يمكنك التفاعل هنا أو الانتقال إلى منشوراتي لتعرف المزيد عن أعمالي.</p>
+    </div>
+
+    <!-- الفوتر: حقوق النشر -->
+    <div class="footer">
+        &copy; 2024 hnoodh. جميع الحقوق محفوظة.
     </div>
 
 </body>
-</html>
+                                                    </html>
