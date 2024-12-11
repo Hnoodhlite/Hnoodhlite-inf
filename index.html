@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.157.0/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/examples/js/loaders/GLTFLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -16,6 +17,7 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       color: #fff;
@@ -30,10 +32,30 @@
       z-index: -1;
     }
 
-    h1 {
-      font-size: 3.5rem;
-      text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-      animation: textGlow 3s infinite alternate ease-in-out;
+    #header {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    #header .animated-text {
+      font-size: 1.5rem;
+      color: #f7d9ff;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     #canvas-container {
@@ -43,20 +65,32 @@
       height: 70%;
     }
 
-    @keyframes textGlow {
-      from {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-      }
-      to {
-        text-shadow: 0 0 50px rgba(255, 255, 255, 1);
-      }
+    footer {
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccccff;
+      width: 100%;
+    }
+
+    footer a {
+      color: #f7d9ff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <div id="vanta-bg"></div>
-  <h1>Welcome to Hnoodh Website</h1>
+  <div id="header">
+    <h1>Welcome to Hnoodh's Website</h1>
+    <div class="animated-text"></div>
+  </div>
   <div id="canvas-container"></div>
+  <footer>
+    <p>Created by Hnoodh, an independent developer passionate about creating amazing projects for the community.</p>
+    <p>&copy; 2024 Hnoodh. All Rights Reserved.</p>
+  </footer>
 
   <script>
     // Animated Background with Vanta.js
@@ -73,6 +107,18 @@
       backgroundColor: 0x0f0f2e,
       points: 12.00,
       maxDistance: 20.00,
+    });
+
+    // Typed.js for animated text
+    new Typed(".animated-text", {
+      strings: [
+        "Discover creativity.",
+        "Explore innovation.",
+        "Hnoodh: Building the future."
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
     });
 
     // Three.js setup for 3D Miku model
