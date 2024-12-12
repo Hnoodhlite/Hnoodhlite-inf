@@ -21,6 +21,8 @@
       justify-content: center;
       align-items: center;
       color: #fff;
+      background-color: #0f0f2e;
+      text-align: center;
     }
 
     #vanta-bg {
@@ -33,46 +35,28 @@
     }
 
     #header {
-      text-align: center;
-      margin-top: 30px;
+      z-index: 1;
       padding: 0 20px;
     }
 
     #header h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin: 0;
     }
 
     #header .animated-text {
       font-size: 1.2rem;
-      color: #f7d9ff;
       margin-top: 10px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    #canvas-container {
-      position: absolute;
-      bottom: 10%;
-      width: 100%;
-      height: 70%;
+      color: #d4b8ff;
     }
 
     button {
       margin-top: 20px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       background: #6a0dad;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s;
@@ -83,17 +67,44 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
-      text-align: center;
+      margin-top: 40px;
       font-size: 0.9rem;
       color: #ccccff;
-      width: 100%;
     }
 
     footer a {
-      color: #f7d9ff;
+      color: #d4b8ff;
       text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      #header h1 {
+        font-size: 1.5rem;
+      }
+
+      #header .animated-text {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #header h1 {
+        font-size: 1.2rem;
+      }
+
+      #header .animated-text {
+        font-size: 0.9rem;
+      }
+
+      button {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+      }
     }
   </style>
 </head>
@@ -104,14 +115,13 @@
     <div class="animated-text"></div>
     <button onclick="location.href='page2.html'">Explore More</button>
   </div>
-  <div id="canvas-container"></div>
   <footer>
     <p>Created by Hnoodh, an independent developer passionate about creating amazing projects for the community.</p>
     <p>&copy; 2024 Hnoodh. All Rights Reserved.</p>
   </footer>
 
   <script>
-    // Animated Background with Vanta.js
+    // Vanta.js Background Animation
     VANTA.NET({
       el: "#vanta-bg",
       mouseControls: true,
@@ -123,64 +133,16 @@
       scaleMobile: 1.00,
       color: 0x6a0dad,
       backgroundColor: 0x0f0f2e,
-      points: 12.00,
+      points: 10.00,
       maxDistance: 20.00,
     });
 
-    // Typed.js for animated text
+    // Animated Text using Typed.js
     new Typed(".animated-text", {
-      strings: [
-        "Discover creativity.",
-        "Explore innovation.",
-        "Hnoodh: Building the future."
-      ],
+      strings: ["Discover creativity.", "Explore innovation.", "Hnoodh: Building the future."],
       typeSpeed: 50,
       backSpeed: 30,
       loop: true,
-    });
-
-    // Three.js setup for 3D Miku model
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-    scene.add(ambientLight);
-
-    // Load Miku 3D model
-    const loader = new THREE.GLTFLoader();
-    loader.load(
-      'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/models/gltf/HatsuneMiku.glb',
-      (gltf) => {
-        const model = gltf.scene;
-        model.scale.set(2, 2, 2);
-        model.position.set(0, -2, 0);
-        scene.add(model);
-
-        // Animation loop for the model
-        function animateModel() {
-          requestAnimationFrame(animateModel);
-          model.rotation.y += 0.01; // Rotate the model slowly
-          renderer.render(scene, camera);
-        }
-        animateModel();
-      },
-      undefined,
-      (error) => {
-        console.error('An error occurred while loading the model:', error);
-      }
-    );
-
-    camera.position.z = 5;
-
-    // Resize handling
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
     });
   </script>
 </body>
